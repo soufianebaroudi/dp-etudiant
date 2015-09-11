@@ -117,7 +117,7 @@ ContactTestCase.prototype.testContactsGet = function () {
     assertEquals(contacts, null);
 };
 
-ContactTestCase.prototype.testContactsGet = function () {
+ContactTestCase.prototype.testContactsGet2 = function () {
     var contact = Contact.Contacts.instance().get('xxx');
 
     assertEquals(contact, null);
