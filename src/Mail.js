@@ -19,7 +19,7 @@ Contact = (function (self) {
             return categorie;
         };
 
-        var init = function(_adress, _categorie){
+       var init = function(_adress, _categorie){
 
             adress = _adress;
             categorie = _categorie;

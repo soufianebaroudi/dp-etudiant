@@ -4,7 +4,7 @@ Contact = (function (self) {
     'use strict';
 
     self.PhoneCategory = {PERSO : 1, PRO : 2};
-    self.PhoneType = {PERSO : 1, PRO : 2};
+    self.PhoneType = {MOBILE : 1, HOME : 2};
 
     self.Phone = function (_number, _categorie, _type) {
 
