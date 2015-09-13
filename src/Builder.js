@@ -14,7 +14,7 @@ Contact = (function (self) {
         this.createContactWithProfessionalMail = function (gender, nom, prenom, adress) {
 
             var contact = new Contact.Contact(gender, nom, prenom);
-            contact.addMail(adress);
+            contact.addMail(new Contact.Mail(adress, Contact.MailCategory.PRO));
             return contact;
 
         };
@@ -22,7 +22,8 @@ Contact = (function (self) {
         this.createContactWithProfessionalMobile = function (gender, nom, prenom, number) {
 
             var contact = new Contact.Contact(gender, nom, prenom);
-            contact.addPhone(number);
+            contact.addPhone(new Contact.Phone(number, Contact.PhoneCategory.PRO,
+                Contact.PhoneType.MOBILE));
             return contact;
         };
 

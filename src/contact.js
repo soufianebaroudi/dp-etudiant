@@ -41,16 +41,17 @@ Contact = (function (self) {
             return phones;
         };
 
-        this.addMail = function (adress) {
+        this.addMail = function (mail) {
 
-            mails.push(new Contact.Mail(adress, Contact.MailCategory.PRO));
+            mails.push(mail);
 
         };
 
-        this.addPhone = function (number) {
+        this.addPhone = function (phone) {
 
-            phones.push(new Contact.Phone(number, Contact.PhoneCategory.PRO, Contact.PhoneType.MOBILE));
+            phones.push(phone);
         };
+
 
 
         var init = function(_gender, _firstname, _secondname){

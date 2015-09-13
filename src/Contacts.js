@@ -23,9 +23,11 @@ var Contacts = function () {
 
         this.clear = function () {
 
-            for (var i = 0; i < ListContacts.length; i++) {
+            for(var i = 0; i< ListContacts.length; i++) {
 
-                ListContacts.remove(ListContacts[i]);
+
+                    ListContacts.splice(i,1);
+
             }
         };
 
@@ -64,6 +66,11 @@ var Contacts = function () {
 
       };
 
+     this.ListContact = function () {
+
+         return ListContacts;
+     };
+
       this.getFromName = function (nom, prenom) {
 
             var list = [];
@@ -76,12 +83,18 @@ var Contacts = function () {
                 }
             }
 
-          if(list.length == 0) {return null}
-          else if (list.length == 1) {return list[0]}
-          else {return list}
+          if(list.length === 0) {return null;}
+          else if (list.length === 1) {return list[0];}
+          else {return list;}
       };
 
-        var init = function () {
+      this.search = function (strategy) {
+
+            return strategy.search(this);
+      };
+
+
+       var init = function () {
 
         };
 
