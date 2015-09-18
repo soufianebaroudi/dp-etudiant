@@ -89,8 +89,6 @@ Contact = (function (self) {
             else if(list.length == 1) {return list[0];}
             else {return list;}
 
-
-
         };
 
         var init = function (_phone) {
@@ -98,6 +96,25 @@ Contact = (function (self) {
         };
 
         init(_phone);
+    };
+
+    self.ChangePhoneStrategy = function (_nom, _prenom, _tel1, _tel2) {
+
+        var nom, prenom,tel1, tel2;
+
+
+
+        var init = function (_nom, _prenom, _tel1, _tel2) {
+
+            nom = _nom;
+            prenom = _prenom;
+            tel1 = _tel1;
+            tel2 = _tel2;
+
+        };
+
+        init(_nom, _prenom, _tel1, _tel2);
+
     };
 
     return self;

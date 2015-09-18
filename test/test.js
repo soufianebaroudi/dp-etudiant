@@ -232,7 +232,7 @@ ContactTestCase.prototype.testContactsProxy = function () {
 };
 
 // task 7
-ContactTestCase.prototype.testContactsProxy = function () {
+ContactTestCase.prototype.testContactsProxy2 = function () {
     var contacts1 = new Contact.Contacts2();
     var contacts2 = new Contact.Contacts2();
     var contacts3 = new Contact.Contacts2();
