@@ -262,3 +262,73 @@ ContactTestCase.prototype.testContactsProxy2 = function () {
 
     assertEquals(contact2, null);
 };
+
+// task 8
+ContactTestCase.prototype.testContactsChain = function () {
+    var contacts1 = new Contact.Contacts2();
+    var contacts2 = new Contact.Contacts2();
+    var contacts3 = new Contact.Contacts2();
+    var handler3 = new Contact.Handler(contacts3, null);
+    var handler2 = new Contact.Handler(contacts2, handler3);
+    var handler1 = new Contact.Handler(contacts1, handler2);
+    var chain = new Contact.Chain(handler1);
+
+    chain.processRequest(new Contact.Request(
+        new Contact.Builder().createContactWithTag(
+            Contact.Gender.MR, 'Eric', 'RAMAT', 'prof')));
+    chain.processRequest(new Contact.Request(
+        new Contact.Builder().createContactWithTag(
+            Contact.Gender.MR, 'Pierre', 'DUPONT', 'student')));
+    chain.processRequest(new Contact.Request(
+        new Contact.Builder().createContactWithTag(
+            Contact.Gender.MR, 'Jean', 'DUPOND', 'admin')));
+    chain.processRequest(new Contact.Request(
+        new Contact.Builder().createContactWithTag(
+            Contact.Gender.MR, 'Jacques', 'DURAND', 'prof')));
+
+    assertEquals(contacts1.size(), 2);
+    assertEquals(contacts2.size(), 1);
+    assertEquals(contacts3.size(), 1);
+};
+
+// task 9
+ContactTestCase.prototype.testContactsStorageSave = function () {
+
+    localStorage.clear();
+
+    Contact.Contacts.instance().clear();
+    Contact.Contacts.instance().add(new Contact.Builder().createContactWithProfessionalMobile(
+        Contact.Gender.MR, 'Eric', 'RAMAT', '0616642258'));
+    Contact.Contacts.instance().add(new Contact.Builder().createContactWithProfessionalMobile(
+        Contact.Gender.MR, 'Pierre', 'DUPONT', '0636532535'));
+    Contact.Contacts.instance().add(new Contact.Builder().createContactWithProfessionalMobile(
+        Contact.Gender.MR, 'Jean', 'DUPOND', '0612343000'));
+    Contact.Contacts.instance().add(new Contact.Builder().createContactWithProfessionalMobile(
+        Contact.Gender.MR, 'Jacques', 'DURAND', '0699785487'));
+
+    Contact.Storage.instance().save(Contact.Contacts.instance());
+
+    var it = Contact.Contacts.instance().iterator();
+
+    while (it.hasNext()) {
+        var contact = it.next();
+
+        if (contact) {
+            assertTrue(localStorage.getItem('contacts/' + contact.id()) !== null);
+        }
+    }
+};
+
+ContactTestCase.prototype.testContactsStorageLoad = function () {
+    var contact = Contact.Contacts.instance().search(
+        new Contact.FromNameSearchStrategy('Eric', 'RAMAT'));
+
+    Contact.Contacts.instance().clear();
+    Contact.Storage.instance().load(Contact.Contacts.instance());
+
+    var contact2 = Contact.Contacts.instance().search(
+        new Contact.FromNameSearchStrategy('Eric', 'RAMAT'));
+
+    assertEquals(Contact.Contacts.instance().size(), 4);
+    assertEquals(contact.id(), contact2.id());
+};

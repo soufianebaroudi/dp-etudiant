@@ -20,7 +20,6 @@ Contact = ( function (self) {
             for(var i=0; i < List.length; i++) {
 
                 inCache = List[i].search(strategy);
-                console.log(inCache);
 
                 if(inCache !== null) {
                     cache[strategy] = inCache;
@@ -38,7 +37,6 @@ Contact = ( function (self) {
             return cache.hasOwnProperty(strategy);
 
         };
-
 
 
         var init = function (_List) {

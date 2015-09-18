@@ -98,10 +98,10 @@ Contact = (function (self) {
         init(_phone);
     };
 
+    // incomplet
     self.ChangePhoneStrategy = function (_nom, _prenom, _tel1, _tel2) {
 
         var nom, prenom,tel1, tel2;
-
 
 
         var init = function (_nom, _prenom, _tel1, _tel2) {

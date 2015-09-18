@@ -79,15 +79,6 @@ Contact = (function (self) {
             return strategy.search(this);
         };
 
-        this.change = function(strategy) {
-
-        };
-
-        var init = function () {
-
-        };
-
-        init();
     };
 
     return self;

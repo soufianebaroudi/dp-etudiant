@@ -52,8 +52,6 @@ Contact = (function (self) {
             phones.push(phone);
         };
 
-
-
         var init = function(_gender, _firstname, _secondname){
 
             gender = _gender;
