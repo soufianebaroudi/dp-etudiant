@@ -7,7 +7,7 @@ Contact = (function (self) {
 
     self.Contact = function (_gender, _firstname, _secondname) {
 
-        var gender, firstName, secondName, mails = [], phones = [];
+        var gender, firstName, secondName, tag, mails = [], phones = [];
 
         this.gender = function () {
 
@@ -23,6 +23,11 @@ Contact = (function (self) {
         this.lastName = function () {
 
             return secondName;
+        };
+
+        this.tag = function () {
+
+            return tag;
         };
 
         this.id = function () {
@@ -50,6 +55,12 @@ Contact = (function (self) {
         this.addPhone = function (phone) {
 
             phones.push(phone);
+        };
+
+        this.addTag = function (_tag) {
+
+            tag = _tag;
+
         };
 
         var init = function(_gender, _firstname, _secondname){

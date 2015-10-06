@@ -27,6 +27,12 @@ Contact = (function (self) {
             return contact;
         };
 
+        this.createContactWithTag = function (gender, nom, prenom, tag) {
+
+            var contact = new Contact.Contact(gender, nom, prenom);
+            contact.addTag(tag);
+            return contact;
+        };
     };
 
     return self;
